@@ -31,6 +31,7 @@ public class MessagesDataService {
     {
         List<MessageData> messages = (List<MessageData>) messagesRepository
                 .findAllByReceiverNameAndAndSenderName(receiverName, senderName);
+        messages.addAll(messagesRepository.findAllByReceiverNameAndAndSenderName(senderName,receiverName));
         return messages;
     }
 }
