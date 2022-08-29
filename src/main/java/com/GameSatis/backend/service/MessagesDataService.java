@@ -29,9 +29,17 @@ public class MessagesDataService {
 
     public List<MessageData> getAllMessages(String receiverName, String senderName)
     {
-        List<MessageData> messages = (List<MessageData>) messagesRepository
-                .findAllByReceiverNameAndAndSenderName(receiverName, senderName);
-        messages.addAll(messagesRepository.findAllByReceiverNameAndAndSenderName(senderName,receiverName));
-        return messages;
+        List<MessageData> messages = new ArrayList<>();
+
+        if(receiverName.equals("CHATROOM")){
+            messages.addAll(messagesRepository.findAllByReceiverNameAndAndSenderName("CHATROOM", senderName));
+            return messages;
+        }
+        else{
+            messages = (List<MessageData>) messagesRepository
+                    .findAllByReceiverNameAndAndSenderName(receiverName, senderName);
+            messages.addAll(messagesRepository.findAllByReceiverNameAndAndSenderName(senderName, receiverName));
+            return messages;
+        }
     }
 }
