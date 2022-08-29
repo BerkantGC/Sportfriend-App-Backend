@@ -32,14 +32,13 @@ public class MessagesDataService {
         List<MessageData> messages = new ArrayList<>();
 
         if(receiverName.equals("CHATROOM")){
-            messages.addAll(messagesRepository.findAllByReceiverNameAndAndSenderName("CHATROOM", senderName));
-            return messages;
+            messages.addAll(messagesRepository.findAllByReceiverName("CHATROOM"));
         }
         else{
             messages = (List<MessageData>) messagesRepository
                     .findAllByReceiverNameAndAndSenderName(receiverName, senderName);
             messages.addAll(messagesRepository.findAllByReceiverNameAndAndSenderName(senderName, receiverName));
-            return messages;
         }
+        return messages;
     }
 }

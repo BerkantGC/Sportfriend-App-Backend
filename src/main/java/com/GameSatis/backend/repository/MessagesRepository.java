@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface MessagesRepository extends JpaRepository<MessageData, Long> {
     List<MessageData> findAllByReceiverNameAndAndSenderName(String receiverName, String senderName);
+    List<MessageData> findAllByReceiverName(String receiverName);
 }
