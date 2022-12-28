@@ -16,13 +16,13 @@ public class GameDetailsController {
     @Autowired
     private GameDetailsService gameDetailsService;
 
-    @GetMapping("/game-details/{id}")
+    @GetMapping("/sport-details/{id}")
     @ResponseBody
     public ResponseEntity<GameDetails> showAll(@PathVariable Integer id){
         return ResponseEntity.ok(gameDetailsService.getByID(id));
     }
 
-    @PostMapping("/game-details")
+    @PostMapping("/sport-details")
     public ResponseEntity<GameDetails> saveDetail(@RequestBody GameDetails detail){
         return ResponseEntity.ok(gameDetailsService.saveGameDetail(detail));
     }

@@ -54,7 +54,7 @@ public class SecurityConfiguration {
         http.csrf().disable();
         http.cors().and().authorizeHttpRequests((auth) -> {
                     try {
-                        auth.antMatchers("/sellers").permitAll().antMatchers("/game-details/**").permitAll()
+                        auth.antMatchers("/sellers").permitAll().antMatchers("/sport-details/**").permitAll()
                                 .antMatchers("/register").permitAll()
                                 .antMatchers("/upload").permitAll()
                                 .antMatchers("/ws/info", "/ws/**").permitAll()
