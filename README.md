@@ -1,1 +1,1 @@
-# YourSportfriend
+# Sportfriend-App
